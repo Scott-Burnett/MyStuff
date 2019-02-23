@@ -13,11 +13,14 @@ namespace Problems{
 			if (input == null)
 				return null;
 			int words = 0 , Length = input.Length;
-			for ( int i = 0; i < Length; i++)
-				if (input[i] == ' ')
+			bool newWord = true;
+			for ( int i = 0; i < Length; i++){
+				if (input[i] != ' ' && newWord){
 					words++;
-			if (Length > 1) 
-				words ++;
+					newWord = false;
+				}else if (input[i] == ' ') 
+					newWord = true;
+				}
 			string result = Length + "," + words + ":" + input;
 			return result;
 		}
